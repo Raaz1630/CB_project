@@ -26,6 +26,15 @@ phases:
       - ls -lrta
       - apt update
       - apt install curl -y
+      - apt-get install -y jq
+      - echo "Checking SonarQube quality gate status..."
+      - |
+        QUALITY_GATE_STATUS=$(curl -s -u <token>: "http://http://54.89.137.66:9000/api/qualitygates/project_status?projectKey=Capstone" | jq -r .projectStatus.status)
+        if [ "$QUALITY_GATE_STATUS" != "OK" ]; then
+          echo "Quality gate failed. Aborting deployment."
+          exit 1
+        fi
+      - echo "Quality gate passed. Proceeding to deploy to Tomcat."
       - echo "Uploading WAR file to S3"
       - aws s3 cp target/*.war s3://raazproject/Capstone/
       - echo "Deploying WAR file to Tomcat"
