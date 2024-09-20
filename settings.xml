@@ -1,12 +1,12 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.2.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.2.0 http://maven.apache.org/xsd/settings-1.2.0.xsd">
-  
+
   <servers>
     <server>
-      <id>codeartifact-repo</id>
-      <username>aws</username>
-      <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+      <id>s3-repo</id>
+      <accessKey>${env.AWS_ACCESS_KEY}</accessKey>
+      <secretKey>${env.AWS_SECRET_KEY}</secretKey>
     </server>
   </servers>
 
@@ -15,9 +15,9 @@
       <id>default</id>
       <repositories>
         <repository>
-          <id>codeartifact-repo</id>
-          <name>CodeArtifact Repository</name>
-          <url>https://capstone-730335265678.d.codeartifact.us-east-1.amazonaws.com/maven/capstone_project/</url>
+          <id>s3-repo</id>
+          <name>S3 Repository</name>
+          <url>s3://raazproject/Capstone/</url>
         </repository>
       </repositories>
     </profile>
