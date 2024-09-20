@@ -29,7 +29,7 @@ phases:
       - apt-get install -y jq
       - echo "Checking SonarQube quality gate status..."
       - |
-        QUALITY_GATE_STATUS=$(curl -s -u <token>: "http://http://54.89.137.66:9000/api/qualitygates/project_status?projectKey=Capstone" | jq -r .projectStatus.status)
+        QUALITY_GATE_STATUS=$(curl -s -u sqp_831f1c44c9b977596a5b05e85d6e305986874074: "http://54.89.137.66:9000/api/qualitygates/project_status?projectKey=Capstone" | jq -r .projectStatus.status)
         if [ "$QUALITY_GATE_STATUS" != "OK" ]; then
           echo "Quality gate failed. Aborting deployment."
           exit 1
