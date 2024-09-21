@@ -98,7 +98,13 @@
 
   Automated Deployment: Deploy the application automatically to Apache Tomcat after the quality gate passes in SonarQube.
 
+  
+
 ![Screenshot 2024-09-20 164640](https://github.com/user-attachments/assets/dd46d806-e36c-4a4a-b9fd-940016f558a2)
+
+
+
+
 
 
 ![Screenshot 2024-09-20 164654](https://github.com/user-attachments/assets/942b4dd9-6e13-4d4e-97d8-0932844c73ad)
