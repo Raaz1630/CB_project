@@ -1,26 +1,26 @@
-Java Web Application - Project Documentation
+**Java Web Application - Project Documentation**
 
-Project Overview
+**Project Overview**
 
-Project Title: Java Web Application
+**Project Title: Java Web Application**
 
            This project is a Java-based web application developed using the Spring Boot framework. The primary focus is to implement a continuous integration and continuous deployment (CI/CD) pipeline for automating the software development lifecycle, ensuring efficient delivery of high-quality code.
 
            The application performs typical web application functions, including handling requests, interacting with a database, and managing resources such as products and orders. The system is designed with robust monitoring and logging features using AWS services, enabling efficient management and troubleshooting.
 
-Key Features:
+**Key Features:**
  
-  Spring Boot: A lightweight, flexible framework for building Java-based web applications.
+  **Spring Boot:** A lightweight, flexible framework for building Java-based web applications.
   
-  Database Integration: PostgreSQL is used in production, while H2 is used for testing purposes.
+  **Database Integration:** PostgreSQL is used in production, while H2 is used for testing purposes.
   
-  Artifact Management: The project utilizes AWS CodeArtifact and Amazon S3 to store versioned build artifacts.
+  **Artifact Management:** The project utilizes AWS CodeArtifact and Amazon S3 to store versioned build artifacts.
   
-  Automated CI/CD Pipeline: The CI/CD pipeline is implemented using AWS CodeBuild, facilitating automated builds, testing, and deployments.
+  **Automated CI/CD Pipeline:** The CI/CD pipeline is implemented using AWS CodeBuild, facilitating automated builds, testing, and deployments.
   
-  Cloud Monitoring: Application health and performance are monitored using AWS CloudWatch, providing visibility into system performance.
+  **Cloud Monitoring:** Application health and performance are monitored using AWS CloudWatch, providing visibility into system performance.
 
-Technologies Used:
+**Technologies Used:**
 
   Programming Language: Java 17
  
@@ -40,9 +40,9 @@ Technologies Used:
   
   Monitoring: AWS CloudWatch
 
-Project Requirements:
+**Project Requirements:**
 
-Software:
+**Software:**
 
   Java 17: Required for compiling and running the application.
   
@@ -56,7 +56,7 @@ Software:
   
   Amazon S3: Storage for build artifacts (WAR files).
 
-Infrastructure:
+**Infrastructure:**
 
   EC2 Instances: Hosting SonarQube and Apache Tomcat servers.
 
@@ -64,15 +64,15 @@ Infrastructure:
   
   AWS CloudWatch: For application and infrastructure monitoring.
 
-Version Control
+**Version Control**
 
   Tool: Git
   
   Repository Hosting: GitHub
 
-CI/CD Pipeline using AWS CodeBuild
+**CI/CD Pipeline using AWS CodeBuild**
 
-Continuous Integration (CI)
+**Continuous Integration (CI)**
 
   CI ensures that every code change is tested and integrated into the main branch frequently, avoiding integration issues.
 
@@ -80,7 +80,7 @@ Continuous Integration (CI)
 
   Buildspec.yml specifies the sequence of build, test, and deploy steps, ensuring consistency across all builds.
   
-Code Quality Analysis
+**Code Quality Analysis**
   
   Tool: SonarQube
   
@@ -90,15 +90,21 @@ Code Quality Analysis
   
   ProjectKey: The Capstone project is defined in SonarQube for tracking quality metrics.
   
-Continuous Deployment (CD)
+**Continuous Deployment (CD)**
   
   After passing the CI phase, the application is deployed automatically.
 
   Artifact Management: Built artifacts (WAR files) are uploaded to Amazon S3 for version control and storage.
-  
+
   Automated Deployment: Deploy the application automatically to Apache Tomcat after the quality gate passes in SonarQube.
 
-SonarQube
+![Screenshot 2024-09-20 164640](https://github.com/user-attachments/assets/dd46d806-e36c-4a4a-b9fd-940016f558a2)
+
+
+![Screenshot 2024-09-20 164654](https://github.com/user-attachments/assets/942b4dd9-6e13-4d4e-97d8-0932844c73ad)
+
+
+**SonarQube**
 
   Code Quality Checks
 
@@ -106,7 +112,7 @@ SonarQube
 
   Quality Gates: The pipeline only proceeds to deployment if the SonarQube quality gate passes, ensuring code quality is maintained.
   
-  Criteria for passing:
+  **Criteria for passing**:
 
      No critical bugs or vulnerabilities
 
@@ -114,7 +120,7 @@ SonarQube
      
      Code coverage threshold (e.g., >80%)
 
-SonarQube Setup
+**SonarQube Setup**
 
   1. Install SonarQube on EC2: 
     
@@ -130,7 +136,12 @@ SonarQube Setup
 
      In SonarQube, configure the quality gate settings to ensure code meets defined thresholds before deployment.
 
-S3 Artifact Storage
+
+![Screenshot 2024-09-20 164625](https://github.com/user-attachments/assets/67a5dcf2-83f1-4eed-8192-e7814fdd58c8)
+
+
+     
+**S3 Artifact Storage**
 
   S3 Bucket Setup
 
@@ -145,10 +156,17 @@ S3 Artifact Storage
    Storing and Retrieving Artifacts
    
      Upload to S3: After a successful build, the WAR file is uploaded to S3.
+
+     
    
      Download for Deployment: When deploying, the application downloads the correct artifact from S3.
+     
 
- Apache Tomcat Deployment
+![Screenshot 2024-09-20 165056](https://github.com/user-attachments/assets/62628403-4463-4aff-b7ee-30a63a47d577)
+
+
+
+ **Apache Tomcat Deployment**
 
   Deployment Strategy
       
@@ -160,9 +178,14 @@ S3 Artifact Storage
 
      WAR Upload: The WAR file is uploaded to the S3 bucket.
      
-     Tomcat Deployment: A deployment script pulls the WAR file from S3 and deploys it to the Tomcat server: 
+     Tomcat Deployment: A deployment script pulls the WAR file from S3 and deploys it to the Tomcat server 
+     
 
-AWS CloudWatch Monitoring
+![Screenshot 2024-09-20 164544](https://github.com/user-attachments/assets/b2520dec-ebe9-402f-8817-225a6922d1f2)
+
+
+
+**AWS CloudWatch Monitoring**
 
   Application Monitoring
   
@@ -192,7 +215,7 @@ AWS CloudWatch Monitoring
      
      Log Group: /tomcat-logs with a stream for each instance.     
 
-Challenges Faced and Solutions
+**Challenges Faced and Solutions**
 
   1. Issues Copying Artifact from S3 to Tomcat
 
@@ -206,11 +229,15 @@ Challenges Faced and Solutions
 
      Solution: The error was identified in the deployment step of the pipeline. I corrected the command in the buildspec.yml, ensuring the correct path was used for copying the WAR file from the build output to Tomcat's webapps directory. This change allowed the pipeline to deploy the WAR file smoothly.
 
-Final Outcome
+**Final Outcome**
 
      After resolving the challenges related to WAR file deployment and artifact management, the application was successfully deployed on the Apache Tomcat server. The CI/CD pipeline ensured seamless integration, code quality checks, and deployment. Upon deployment, the application was tested, and it opened successfully in the browser
 
-Conclusion
+
+![Screenshot 2024-09-20 165320](https://github.com/user-attachments/assets/f9ac6723-e0ac-47a1-9efc-76624ab7d15a)  
+
+
+**Conclusion**
 
      As a DevOps engineer, the main objective of this project was to create an automated CI/CD pipeline for a Java web application using AWS tools. Throughout this project, I successfully developed and deployed an E-Commerce Inventory Management System that helps manage products, track inventory, and process orders.
 
