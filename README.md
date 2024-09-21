@@ -2,7 +2,7 @@
 
 **Project Overview**
 
-**Project Title: Java Web Application**
+**Project Title: CI/CD pipeline job using AWS tools on Java Web Application**
 
            This project is a Java-based web application developed using the Spring Boot framework. The primary focus is to implement a continuous integration and continuous deployment (CI/CD) pipeline for automating the software development lifecycle, ensuring efficient delivery of high-quality code.
 
