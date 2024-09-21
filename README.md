@@ -14,7 +14,7 @@
   
   **Database Integration:** PostgreSQL is used in production, while H2 is used for testing purposes.
   
-  **Artifact Management:** The project utilizes AWS CodeArtifact and Amazon S3 to store versioned build artifacts.
+  **Artifact Management:** The project utilizes Amazon S3 to store versioned build artifacts.
   
   **Automated CI/CD Pipeline:** The CI/CD pipeline is implemented using AWS CodeBuild, facilitating automated builds, testing, and deployments.
   
@@ -36,7 +36,7 @@
   
   Code Quality Tool: SonarQube
   
-  Artifact Storage: AWS S3, AWS CodeArtifact
+  Artifact Storage: AWS S3
   
   Monitoring: AWS CloudWatch
 
